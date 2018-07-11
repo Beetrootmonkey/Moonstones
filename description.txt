@@ -16,6 +16,7 @@ This mod should serve as an alternative to the boring reforge mechanic the gobli
 aim to replace it. Moonstones are simply a way of manually applying modifiers.
 
 Currently this mod doesn't feature a config file, but I will try to implement one if I ever find out how.
-I tested this mod in singleplayer only so far.
+I tested this mod in singleplayer only so far. If you find any bugs (and I'm sure you will, since I build
+this mod in less than a day), you can open a new issue on github: https://github.com/Beetrootmonkey/Moonstones/issues
 
 Cheers.
