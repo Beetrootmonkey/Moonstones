@@ -1,0 +1,11 @@
+C:\Users\I Am The Issue\Documents\My Games\Terraria\ModLoader\Mod Sources\Moonstones\bin\Debug\beetrootmod.dll
+C:\Users\I Am The Issue\Documents\My Games\Terraria\ModLoader\Mod Sources\Moonstones\bin\Debug\beetrootmod.pdb
+C:\Users\I Am The Issue\Documents\My Games\Terraria\ModLoader\Mod Sources\Moonstones\bin\Debug\Microsoft.Xna.Framework.dll
+C:\Users\I Am The Issue\Documents\My Games\Terraria\ModLoader\Mod Sources\Moonstones\bin\Debug\Microsoft.Xna.Framework.Game.dll
+C:\Users\I Am The Issue\Documents\My Games\Terraria\ModLoader\Mod Sources\Moonstones\bin\Debug\Microsoft.Xna.Framework.Graphics.dll
+C:\Users\I Am The Issue\Documents\My Games\Terraria\ModLoader\Mod Sources\Moonstones\bin\Debug\Microsoft.Xna.Framework.Xact.dll
+C:\Users\I Am The Issue\Documents\My Games\Terraria\ModLoader\Mod Sources\Moonstones\bin\Debug\Terraria.exe
+C:\Users\I Am The Issue\Documents\My Games\Terraria\ModLoader\Mod Sources\Moonstones\obj\Debug\beetrootmod.csprojResolveAssemblyReference.cache
+C:\Users\I Am The Issue\Documents\My Games\Terraria\ModLoader\Mod Sources\Moonstones\obj\Debug\beetrootmod.csproj.CoreCompileInputs.cache
+C:\Users\I Am The Issue\Documents\My Games\Terraria\ModLoader\Mod Sources\Moonstones\obj\Debug\beetrootmod.dll
+C:\Users\I Am The Issue\Documents\My Games\Terraria\ModLoader\Mod Sources\Moonstones\obj\Debug\beetrootmod.pdb

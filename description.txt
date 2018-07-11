@@ -1,0 +1,21 @@
+Have you ever thought to yourself:
+"Man, terraria's reforge mechanic is a little bit too random for me!"?
+Then, my friend, this tiny mod might be the mod for you!
+
+This mod currently adds two items:
+- a "dormant" moonstone, which is basically a lootbag (that stacks)
+- an awakened moonstone, that will spawn from right-clicking (=opening) a dormant one
+
+At this point, enemies have a hardcoded 1% chance to drop a dormant moonstone, that you can later (when you
+find yourself having the inventory space) awaken. Awakened moonstone do not stack, but spawn with a guaranteed
+accessory-specific prefix/modifier. When you right-click an awakened moonstone, it will try to apply its prefix
+to your held item. For this to work, you need to hold an accessory; otherwise right-clicking will simply return
+the moonstone (so you don't accidentally waste it on items that can't receive modifiers).
+
+This mod should serve as an alternative to the boring reforge mechanic the goblin tinkerer offers, but it doesn't
+aim to replace it. Moonstones are simply a way of manually applying modifiers.
+
+Currently this mod doesn't feature a config file, but I will try to implement one if I ever find out how.
+I tested this mod in singleplayer only so far.
+
+Cheers.

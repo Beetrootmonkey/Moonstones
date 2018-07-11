@@ -1,0 +1,3 @@
+author = Beetrootmonkey
+version = 1.0.1
+displayName = Moonstones
