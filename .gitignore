@@ -1,2 +1,3 @@
 
-obj/Debug/Moonstones.csproj.CoreCompileInputs.cache
+obj/*
+.vs/*
