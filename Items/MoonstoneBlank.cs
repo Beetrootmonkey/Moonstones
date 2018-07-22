@@ -13,12 +13,16 @@ namespace Moonstones.Items
 		}
 
 		public override void SetDefaults()
-        {
-            item.value = 10000;
+        	{
+			item.damage = 5;
+			item.knockBack = 5;
+			item.mana = 5;
+		
+            		item.value = 10000;
 			item.rare = 2;
-            item.maxStack = 9999;
-            item.SetNameOverride("Moonstone (Dormant)");
-        }
+            		item.maxStack = 9999;
+            		item.SetNameOverride("Moonstone (Dormant)");
+        	}
 
         public override bool CanRightClick()
         {
