@@ -14,10 +14,6 @@ namespace Moonstones.Items
 
 		public override void SetDefaults()
         	{
-			item.damage = 5;
-			item.knockBack = 5;
-			item.mana = 5;
-		
             		item.value = 10000;
 			item.rare = 2;
             		item.maxStack = 9999;
@@ -32,7 +28,7 @@ namespace Moonstones.Items
         public override void RightClick(Player player)
         {
             ModItem item = null;
-            if (Main.rand.Next(1) != 0)
+            if (Main.rand.Next(2) == 1)
             {
                 item = mod.GetItem("MoonstoneWeapon");
             } else
