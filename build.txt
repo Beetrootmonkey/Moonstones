@@ -1,4 +1,4 @@
 author = Beetrootmonkey
-version = 1.0.4
+version = 1.0.5
 displayName = Moonstones
 homepage = https://github.com/Beetrootmonkey/Moonstones

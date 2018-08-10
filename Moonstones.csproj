@@ -34,7 +34,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="beetrootmod.cs" />
     <Compile Include="Items\MoonstoneAccessory.cs" />
     <Compile Include="Items\MoonstoneBlank.cs" />
     <Compile Include="Items\MoonstoneWeapon.cs" />
@@ -64,9 +63,6 @@
     <Reference Include="Terraria">
       <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Terraria\Terraria.exe</HintPath>
     </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Terraria-master.zip" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
