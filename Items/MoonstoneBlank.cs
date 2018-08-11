@@ -17,6 +17,7 @@ namespace Moonstones.Items
         {
             item.value = 10000;
 			item.rare = 2;
+            item.maxStack = 9999;
         }
 
         public override bool CanRightClick()
@@ -35,7 +36,7 @@ namespace Moonstones.Items
 				item = mod.GetItem("MoonstoneAccessory");
 			}
 			int prefix = item.ChoosePrefix(Main.rand);
-			int number = Item.NewItem((int)player.position.X, (int)player.position.Y, player.width, player.height, item.item.type, prefix, false, prefix, false, false);
+			int number = Item.NewItem((int)player.position.X, (int)player.position.Y, player.width, player.height, item.item.type, 1, false, prefix, true, false);
 			if (Main.netMode == 1)
 			{
 			NetMessage.SendData(21, -1, -1, null, number, 1f, 0f, 0f, 0, 0, 0);

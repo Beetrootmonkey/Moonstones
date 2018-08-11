@@ -10,7 +10,7 @@ namespace Moonstones.Items
 		public override void SetStaticDefaults()
 		{
 			Tooltip.SetDefault("Rightclick to apply its modifier to your held accessory.");
-            DisplayName.SetDefault("Moonstone");
+            DisplayName.SetDefault("Moonstone (Accessories)");
         }
 
 		public override void SetDefaults()
@@ -18,7 +18,7 @@ namespace Moonstones.Items
             item.value = 10000;
 			item.rare = 2;
 			item.maxStack = 1;
-            item.accessory = true;
+            //item.accessory = true;
 		}
 
 		public override int ChoosePrefix(UnifiedRandom rand)
@@ -26,26 +26,44 @@ namespace Moonstones.Items
 		    return (byte)rand.Next(62, 81);
 		}
 
-        public override bool CanRightClick()
+        private int GetIndexInArray(object[] arr, object obj)
         {
-            return true;
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (arr[i].Equals(obj))
+                {
+                    return i;
+                }
+            }
+
+            return -1;
         }
 
-		public override void RightClick(Player player)
+        public override bool CanRightClick()
+        {
+            Item heldItem = Main.LocalPlayer.HeldItem;
+            return !heldItem.IsAir && heldItem.accessory && heldItem.prefix != item.prefix;
+        }
+
+        public override void RightClick(Player player)
 		{
-			Item item = player.HeldItem;
-			if (item != null && item.accessory)
-			{
-				item.Prefix(this.item.prefix);
-			}
-			else
-			{
-				int number = Item.NewItem((int)player.position.X, (int)player.position.Y, player.width, player.height, this.item.type, 1, false, this.item.prefix, false, false);
-				if (Main.netMode == 1)
-				{
-					NetMessage.SendData(21, -1, -1, null, number, 1f, 0f, 0f, 0, 0, 0);
-				}
-			}
-		}
+            Item item = player.HeldItem;
+            bool favorited = item.favorited;
+            int stack = item.stack;
+            Item obj1 = new Item();
+            obj1.netDefaults(item.netID);
+            Item obj2 = obj1.CloneWithModdedDataFrom(item);
+            obj2.Prefix(this.item.prefix);
+            int index = GetIndexInArray(player.inventory, item);
+            item = obj2.Clone();
+            item.position.X = player.position.X + (float)(player.width / 2) - (float)(item.width / 2);
+            item.position.Y = player.position.Y + (float)(player.height / 2) - (float)(item.height / 2);
+            item.favorited = favorited;
+            item.stack = stack;
+            player.inventory[index] = item;
+            ItemLoader.PostReforge(item);
+            ItemText.NewText(item, item.stack, true, false);
+            Main.PlaySound(SoundID.Item37, -1, -1);
+        }
 	}
 }
