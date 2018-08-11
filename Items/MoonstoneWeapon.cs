@@ -89,7 +89,8 @@ namespace Moonstones.Items
             List<TooltipLine> toRemove = new List<TooltipLine>();
             tooltips.ForEach(t =>
             {
-                if (t.Name != "ItemName" && t.Name != "Tooltip0")
+                if (t.Name == "Damage" || t.Name == "CritChance" || t.Name == "Knockback" || t.Name == "UseMana" ||
+                    t.Name.StartsWith("Prefix"))
                 {
                     toRemove.Add(t);
                 }
@@ -399,65 +400,71 @@ namespace Moonstones.Items
             }
 
 
-            string colorPositive = getColorAsString(Colors.RarityGreen * ((float)Main.mouseTextColor / (float)byte.MaxValue));
-            string colorNegative = getColorAsString(Colors.RarityRed * ((float)Main.mouseTextColor / (float)byte.MaxValue));
+            string colorPositive = getColorAsString(new Color(114, 181, 114) * ((float)Main.mouseTextColor / (float)byte.MaxValue));
+            string colorNegative = getColorAsString(new Color(181, 114, 114) * ((float)Main.mouseTextColor / (float)byte.MaxValue));
+            int index = tooltips.FindIndex(x => x.Name == "Tooltip0");
 
-            if (scaleMult != 1)
+            if (index >= 0)
             {
-                tooltips.Add(new TooltipLine(this.mod, "TooltipSize",
-                    string.Format("[{0}{1}{2}% size]",
-                    scaleMult > 1 ? colorPositive : colorNegative,
-                    scaleMult > 1 ? "+" : "",
-                    (int)((scaleMult - 1) * 100))));
+                index++;
+                if (scaleMult != 1)
+                {
+                    tooltips.Insert(index, new TooltipLine(this.mod, "TooltipSize",
+                        string.Format("[{0}{1}{2}% size]",
+                        scaleMult > 1 ? colorPositive : colorNegative,
+                        scaleMult > 1 ? "+" : "",
+                        (int)((scaleMult - 1) * 100))));
+                }
+                if (damageMult != 1)
+                {
+                    tooltips.Insert(index, new TooltipLine(this.mod, "TooltipDamage",
+                        string.Format("[{0}{1}{2}% damage]",
+                        damageMult > 1 ? colorPositive : colorNegative,
+                        damageMult > 1 ? "+" : "",
+                        (int)((damageMult - 1) * 100))));
+                }
+                if (critBonus != 0)
+                {
+                    tooltips.Insert(index, new TooltipLine(this.mod, "TooltipCrit",
+                        string.Format("[{0}{1}{2}% critical strike chance]",
+                        critBonus > 1 ? colorPositive : colorNegative,
+                        critBonus > 1 ? "+" : "",
+                        critBonus)));
+                }
+                if (knockbackMult != 1)
+                {
+                    tooltips.Insert(index, new TooltipLine(this.mod, "TooltipKnockback",
+                        string.Format("[{0}{1}{2}% knockback]",
+                        knockbackMult > 1 ? colorPositive : colorNegative,
+                        knockbackMult > 1 ? "+" : "",
+                        (int)((knockbackMult - 1) * 100))));
+                }
+                if (manaMult != 1)
+                {
+                    tooltips.Insert(index, new TooltipLine(this.mod, "TooltipMana",
+                        string.Format("[{0}{1}{2}% mana usage]",
+                        manaMult > 1 ? colorNegative : colorPositive,
+                        manaMult > 1 ? "+" : "",
+                        (int)((manaMult - 1) * 100))));
+                }
+                if (useTimeMult != 1)
+                {
+                    tooltips.Insert(index, new TooltipLine(this.mod, "TooltipUseTime",
+                        string.Format("[{0}{1}{2}% use time]",
+                        useTimeMult > 1 ? colorNegative : colorPositive,
+                        useTimeMult > 1 ? "+" : "",
+                        (int)((useTimeMult - 1) * 100))));
+                }
+                if (shootSpeedMult != 1)
+                {
+                    tooltips.Insert(index, new TooltipLine(this.mod, "TooltipVelocity",
+                        string.Format("[{0}{1}{2}% velocity]",
+                        shootSpeedMult > 1 ? colorPositive : colorNegative,
+                        shootSpeedMult > 1 ? "+" : "",
+                        (int)((shootSpeedMult - 1) * 100))));
+                }
             }
-            if (damageMult != 1)
-            {
-                tooltips.Add(new TooltipLine(this.mod, "TooltipDamage",
-                    string.Format("[{0}{1}{2}% damage]",
-                    damageMult > 1 ? colorPositive : colorNegative,
-                    damageMult > 1 ? "+" : "",
-                    (int)((damageMult - 1) * 100))));
-            }
-            if (critBonus != 0)
-            {
-                tooltips.Add(new TooltipLine(this.mod, "TooltipCrit",
-                    string.Format("[{0}{1}{2}% critical strike chance]",
-                    critBonus > 1 ? colorPositive : colorNegative,
-                    critBonus > 1 ? "+" : "",
-                    critBonus)));
-            }
-            if (knockbackMult != 1)
-            {
-                tooltips.Add(new TooltipLine(this.mod, "TooltipKnockback",
-                    string.Format("[{0}{1}{2}% knockback]",
-                    knockbackMult > 1 ? colorPositive : colorNegative,
-                    knockbackMult > 1 ? "+" : "",
-                    (int)((knockbackMult - 1) * 100))));
-            }
-            if (manaMult != 1)
-            {
-                tooltips.Add(new TooltipLine(this.mod, "TooltipMana",
-                    string.Format("[{0}{1}{2}% mana usage]",
-                    manaMult > 1 ? colorNegative : colorPositive,
-                    manaMult > 1 ? "+" : "",
-                    (int)((manaMult - 1) * 100))));
-            }
-            if (useTimeMult != 1)
-            {
-                tooltips.Add(new TooltipLine(this.mod, "TooltipUseTime",
-                    string.Format("[{0}{1}{2}% use time]",
-                    useTimeMult > 1 ? colorNegative : colorPositive,
-                    useTimeMult > 1 ? "+" : "",
-                    (int)((useTimeMult - 1) * 100))));
-            }
-            if (shootSpeedMult != 1)
-            {
-                tooltips.Add(new TooltipLine(this.mod, "TooltipVelocity",
-                    string.Format("[{0}{1}{2}% use time]",
-                    shootSpeedMult > 1 ? colorNegative : colorPositive,
-                    shootSpeedMult > 1 ? "+" : "",
-                    (int)((shootSpeedMult - 1) * 100))));
-            }
+
         }
 
         private string getColorAsString(Color color)
