@@ -8,7 +8,7 @@ This mod currently adds three items:
 	- accessory moonstones will let you apply modifiers to accessories
 	- [NEW!] weapon moonstones will let you apply modifiers to weapons
 
-At this point, enemies have a hardcoded 1% chance to drop a dormant moonstone, that you can later (when you
+At this point, enemies have a hardcoded 2.5% chance to drop a dormant moonstone, that you can later (when you
 find yourself having the inventory space) awaken. Awakened moonstone do not stack, but spawn with a guaranteed
 prefix/modifier. When you right-click an awakened moonstone, it will try to apply its prefix
 to your held item. For this to work, you need to hold an accessory or a weapon that is able to accept that modifier.
