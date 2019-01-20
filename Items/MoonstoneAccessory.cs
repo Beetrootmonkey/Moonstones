@@ -14,6 +14,10 @@ namespace Moonstones.Items
 
 		public override void SetDefaults()
 		{
+			//Making the item size bigger because I expirienced a glitch where it would fall into blocks.
+			item.height = 32;
+			item.width = 32;
+		
 			item.value = 10000;
 			item.rare = 2;
 			item.maxStack = 1;
@@ -22,7 +26,24 @@ namespace Moonstones.Items
 
 		public override int ChoosePrefix(UnifiedRandom rand)
 		{
-		return (byte)rand.Next(62, 84);
+		
+			/*
+			So I changed this entire block in order to have a feature to change the reforge color-
+			bright purple if the prefix was the 'best' possible one for that item type.
+			*/
+		
+			int[] best = {65, 66, 68, 72, 76, 80}; //The prefix values for the 'best' prefixes on any accessory.
+		
+			byte pfix = (byte)rand.Next(62, 80);//Changed this to 80 because 81-84 are reserved for non accessory prefixes 
+			
+			foreach (int x in best)
+			{
+				if ((int)pfix == x)
+				{
+					item.rare = 10;
+				}
+			}
+			return pfix;
 		}
 
 		public override bool CanRightClick()
