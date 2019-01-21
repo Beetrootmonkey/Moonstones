@@ -18,7 +18,7 @@ namespace Moonstones.NPCs
 
 		public override void NPCLoot(NPC npc)
 		{
-			if (npc.lifeMax > 100 && npc.value > 0f && Main.rand.Next(100) == 0)
+			if (npc.lifeMax > 100 && npc.value > 0f && Main.rand.Next(250) == 0)//This is because i find it drops too often while farming
 			{
 				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("MoonstoneBlank"));
 			}
