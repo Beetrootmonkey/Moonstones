@@ -5,7 +5,7 @@ using Terraria.Utilities;
 
 namespace Moonstones.Items
 {
-	public class MoonstoneWeapon : ModItem
+	public class MoonstoneMelee : ModItem
 	{
     
 		public override void SetStaticDefaults()
